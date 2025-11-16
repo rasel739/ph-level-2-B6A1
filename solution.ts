@@ -1,21 +1,18 @@
-const formatValue = (value: string | number | boolean) => {
-  let result = null;
+type commonType = string | number | boolean;
+type formatValueType = commonType;
+type getLengthType = string | commonType[];
+
+const formatValue = (value: formatValueType) => {
   if (value === '' || value === 0) {
     return 'This value is not allow!';
   }
 
   if (typeof value === 'string') {
-    result = value.toUpperCase();
-
-    return result;
+    return value.toUpperCase();
   } else if (typeof value === 'number') {
-    result = value * 10;
-
-    return result;
+    return value * 10;
   } else if (typeof value === 'boolean') {
-    result = value === true ? false : true;
-
-    return result;
+    return value === true ? false : true;
   } else {
     return 'Sorry you do not provide any value';
   }
@@ -24,3 +21,20 @@ const formatValue = (value: string | number | boolean) => {
 console.log(formatValue('hello'));
 console.log(formatValue(5));
 console.log(formatValue(true));
+
+const getLength = (value: getLengthType) => {
+  if (value.length === 0) {
+    return 'Empty value is not allow';
+  }
+
+  if (typeof value === 'string') {
+    return value.trim().length;
+  } else if (Array.isArray(value)) {
+    return value.length;
+  } else {
+    return 'This value is not Allow!';
+  }
+};
+
+console.log(getLength('typescript'));
+console.log(getLength([10, 20, 30, 40]));
