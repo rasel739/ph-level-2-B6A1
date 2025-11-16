@@ -68,7 +68,7 @@ const books: IBooks[] = [
   { title: 'Book B', rating: 3.2 },
   { title: 'Book C', rating: 5.0 },
   { title: 'Book D', rating: 3.9 },
-  { title: 'Book E', rating: 6.0 },
+  { title: 'Book E', rating: 4.3 },
 ];
 
 const filterByRating = (book: IBooks[]): string | IBooks[] => {
@@ -76,7 +76,31 @@ const filterByRating = (book: IBooks[]): string | IBooks[] => {
     return 'Invalid value!';
   }
 
-  return book.filter((items) => items.rating >= 4 && items.rating <= 5);
+  return book
+    .filter((items) => items.rating >= 4 && items.rating <= 5)
+    .sort((a, b) => a.rating - b.rating);
 };
 
-console.log(filterByRating(books));
+// console.log(filterByRating(books));
+
+interface IUsers {
+  id: number;
+  name: string;
+  email: string;
+  isActive: boolean;
+}
+
+const users: IUsers[] = [
+  { id: 1, name: 'Rakib', email: 'rakib@example.com', isActive: true },
+  { id: 2, name: 'Asha', email: 'asha@example.com', isActive: false },
+  { id: 3, name: 'Rumi', email: 'rumi@example.com', isActive: true },
+];
+
+const filterActiveUsers = (user: IUsers[]): string | IUsers[] => {
+  if (!Array.isArray(user)) {
+    return 'Invalid value!';
+  }
+  return user.filter((item) => item.isActive === true);
+};
+
+// console.log(filterActiveUsers(users));
