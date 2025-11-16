@@ -57,3 +57,26 @@ class Person {
 
 // const person2 = new Person('Alice', 25);
 // console.log(person2.getDetails());
+
+interface IBooks {
+  title: string;
+  rating: number;
+}
+
+const books: IBooks[] = [
+  { title: 'Book A', rating: 4.5 },
+  { title: 'Book B', rating: 3.2 },
+  { title: 'Book C', rating: 5.0 },
+  { title: 'Book D', rating: 3.9 },
+  { title: 'Book E', rating: 6.0 },
+];
+
+const filterByRating = (book: IBooks[]): string | IBooks[] => {
+  if (!Array.isArray(book)) {
+    return 'Invalid value!';
+  }
+
+  return book.filter((items) => items.rating >= 4 && items.rating <= 5);
+};
+
+console.log(filterByRating(books));
