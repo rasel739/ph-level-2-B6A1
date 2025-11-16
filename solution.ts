@@ -58,12 +58,12 @@ class Person {
 // const person2 = new Person('Alice', 25);
 // console.log(person2.getDetails());
 
-interface IBooks {
+interface IBooksArray {
   title: string;
   rating: number;
 }
 
-const books: IBooks[] = [
+const books: IBooksArray[] = [
   { title: 'Book A', rating: 4.5 },
   { title: 'Book B', rating: 3.2 },
   { title: 'Book C', rating: 5.0 },
@@ -71,7 +71,7 @@ const books: IBooks[] = [
   { title: 'Book E', rating: 4.3 },
 ];
 
-const filterByRating = (book: IBooks[]): string | IBooks[] => {
+const filterByRating = (book: IBooksArray[]): string | IBooksArray[] => {
   if (!Array.isArray(book)) {
     return 'Invalid value!';
   }
@@ -104,3 +104,27 @@ const filterActiveUsers = (user: IUsers[]): string | IUsers[] => {
 };
 
 // console.log(filterActiveUsers(users));
+
+interface IBook {
+  title: string;
+  author: string;
+  publishedYear: number;
+  isAvailable: boolean;
+}
+
+const myBook: IBook = {
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  publishedYear: 1925,
+  isAvailable: true,
+};
+
+const printBookDetails = (book: IBook): void => {
+  console.log(
+    `Title: ${book.title}, Author: ${book.author}, Published: ${book.publishedYear}, Available: ${
+      book.isAvailable === true ? 'YES' : 'NO'
+    }`
+  );
+};
+
+printBookDetails(myBook);
