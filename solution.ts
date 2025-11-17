@@ -127,4 +127,28 @@ const printBookDetails = (book: IBook): void => {
   );
 };
 
-printBookDetails(myBook);
+// printBookDetails(myBook);
+
+type arrayType = (string | number)[];
+
+const array1: arrayType = [1, 2, 3, 4, 5];
+const array2: arrayType = [3, 4, 5, 6, 7];
+
+const getUniqueValues = (arr1: arrayType, arr2: arrayType): string | arrayType => {
+  const newArray: arrayType = [];
+  const result = arr1.concat(arr2);
+
+  if (!Array.isArray(result)) {
+    return 'Invalid Array!';
+  }
+
+  result.forEach((item) => {
+    if (!newArray.includes(item)) {
+      newArray.push(item);
+    }
+  });
+
+  return newArray;
+};
+
+console.log(getUniqueValues(array1, array2));
