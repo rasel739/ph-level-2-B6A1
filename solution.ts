@@ -48,7 +48,7 @@ class Person {
   }
 
   getDetails() {
-    return `Name: ${this.name}, Age: ${this.age}`;
+    return `'Name: ${this.name}, Age: ${this.age}'`;
   }
 }
 
@@ -67,8 +67,6 @@ const books: IBooksArray[] = [
   { title: 'Book A', rating: 4.5 },
   { title: 'Book B', rating: 3.2 },
   { title: 'Book C', rating: 5.0 },
-  { title: 'Book D', rating: 3.9 },
-  { title: 'Book E', rating: 4.3 },
 ];
 
 const filterByRating = (book: IBooksArray[]): string | IBooksArray[] => {
