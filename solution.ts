@@ -151,4 +151,34 @@ const getUniqueValues = (arr1: arrayType, arr2: arrayType): string | arrayType =
   return newArray;
 };
 
-console.log(getUniqueValues(array1, array2));
+// console.log(getUniqueValues(array1, array2));
+
+interface IProducts {
+  name: string;
+  price: number;
+  quantity: number;
+  discount?: number;
+}
+
+const products: IProducts[] = [
+  { name: 'Pen', price: 10, quantity: 2 },
+  { name: 'Notebook', price: 25, quantity: 3, discount: 10 },
+  { name: 'Bag', price: 50, quantity: 1, discount: 20 },
+];
+
+const calculateTotalPrice = (productArray: IProducts[]) => {
+  const totalPrice = productArray.reduce((subTotal, product) => {
+    const subPrice = product.price * product.quantity;
+
+    let finalPrice = subPrice;
+    if (product.discount) {
+      finalPrice = subPrice - (subPrice * product.discount) / 100;
+    }
+
+    return product.discount ? subTotal + finalPrice : subTotal + subPrice;
+  }, 0);
+
+  return totalPrice;
+};
+
+console.log(calculateTotalPrice(products));
