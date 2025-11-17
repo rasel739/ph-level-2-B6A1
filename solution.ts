@@ -18,9 +18,9 @@ const formatValue = (value: formatValueType) => {
   }
 };
 
-// console.log(formatValue('hello'));
-// console.log(formatValue(5));
-// console.log(formatValue(true));
+console.log(formatValue('hello'));
+console.log(formatValue(5));
+console.log(formatValue(true));
 
 const getLength = (value: getLengthType) => {
   if (value.length === 0) {
@@ -36,8 +36,8 @@ const getLength = (value: getLengthType) => {
   }
 };
 
-// console.log(getLength('typescript'));
-// console.log(getLength([10, 20, 30, 40]));
+console.log(getLength('typescript'));
+console.log(getLength([10, 20, 30, 40]));
 
 class Person {
   private name: string;
@@ -52,11 +52,11 @@ class Person {
   }
 }
 
-// const person1 = new Person('John Doe', 30);
-// console.log(person1.getDetails());
+const person1 = new Person('John Doe', 30);
+console.log(person1.getDetails());
 
-// const person2 = new Person('Alice', 25);
-// console.log(person2.getDetails());
+const person2 = new Person('Alice', 25);
+console.log(person2.getDetails());
 
 interface IBooksArray {
   title: string;
@@ -81,7 +81,7 @@ const filterByRating = (book: IBooksArray[]): string | IBooksArray[] => {
     .sort((a, b) => a.rating - b.rating);
 };
 
-// console.log(filterByRating(books));
+console.log(filterByRating(books));
 
 interface IUsers {
   id: number;
@@ -103,7 +103,7 @@ const filterActiveUsers = (user: IUsers[]): string | IUsers[] => {
   return user.filter((item) => item.isActive === true);
 };
 
-// console.log(filterActiveUsers(users));
+console.log(filterActiveUsers(users));
 
 interface IBook {
   title: string;
@@ -127,7 +127,7 @@ const printBookDetails = (book: IBook): void => {
   );
 };
 
-// printBookDetails(myBook);
+printBookDetails(myBook);
 
 type arrayType = (string | number)[];
 
@@ -151,7 +151,7 @@ const getUniqueValues = (arr1: arrayType, arr2: arrayType): string | arrayType =
   return newArray;
 };
 
-// console.log(getUniqueValues(array1, array2));
+console.log(getUniqueValues(array1, array2));
 
 interface IProducts {
   name: string;
